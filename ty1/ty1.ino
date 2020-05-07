@@ -67,7 +67,7 @@ void setup() {
 
   for (int x = 0; x < 319; x++) {
 
-    LCD_Bitmap(x, 84, 16, 16, piso);
+    LCD_Bitmap(x, 100, 16, 16, piso);
 
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
