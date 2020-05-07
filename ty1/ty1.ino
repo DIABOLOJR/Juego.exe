@@ -72,6 +72,9 @@ void setup() {
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
     x += 15;
+    pinMode (PA_4, INPUT);
+    pinMode (PA_3, INPUT);
+    pinMode (PA_2, INPUT);
   }
   //BALAN
   //SAI Arma izquierda
@@ -94,27 +97,26 @@ void loop() {
   if (b == 1) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
-      
-      int anim2 = (x / 3) % 3;
+if (digitalRead(PA_3) == HIGH){
+     int anim2 = (x / 3) % 3;
+      LCD_Sprite(64, 175 , 22, 32, SAMUSSALTO, 3, anim2, 0, 0);
+      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+      FillRect(0 , 84 , 17 , 32, 0X00);
+      FillRect(0 , 191, 17 , 32, 0X00);
+  }
+  else {
+     int anim2 = (x / 3) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
       LCD_Bitmap(x, 191 , 17, 32, SALTAR);
       LCD_Bitmap(x, 84 , 17, 32, SALTAR);
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 84 , 17 , 32, 0X00);
       FillRect(0 , 191, 17 , 32, 0X00);
-      if (x == 86){
-       f = f--;  
-       if (f == 0){
-          int G = 1;
-          FillRect(0, 0, 319, 206, 0x00);
-          while (G == 1){
-         String text2 = "GAME OVER";
-         LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
-  }
   }
        }
       }
-  }
   else if (b == 2) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
