@@ -94,9 +94,9 @@ void loop() {
       
       int anim2 = (x / 5) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 223 , 17, 32, SALTAR);
+      LCD_Bitmap(x, 175 , 17, 32, SALTAR);
       LCD_Bitmap(x, 68 , 17, 32, SALTAR);
-      LCD_Sprite(64, 36 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       
     }
   }
@@ -105,8 +105,9 @@ void loop() {
       delay(15);
       int anim2 = (x / 5) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 223 , 17, 62, BOLA);
-
+      LCD_Bitmap(x, 175 , 17, 62, BOLA);
+      LCD_Bitmap(x, 68 , 17, 32, BOLA);
+      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       
     }
   }
@@ -116,6 +117,8 @@ void loop() {
       int anim2 = (x / 5) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
       LCD_Bitmap(x, 223 , 17, 32, piso);
+      LCD_Bitmap(x, 68 , 17, 32, piso);
+      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
 
       
     }
