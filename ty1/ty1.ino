@@ -96,7 +96,7 @@ void loop() {
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
       LCD_Bitmap(x, 223 , 17, 32, SALTAR);
       LCD_Bitmap(x, 68 , 17, 32, SALTAR);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+      LCD_Sprite(64, 36 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       
     }
   }
