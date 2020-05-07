@@ -85,7 +85,7 @@ void setup() {
 
 
 void loop() {
-
+   while (int f > 0){
   int b = random (4);
 
   if (b == 1) {
@@ -99,7 +99,9 @@ void loop() {
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 84 , 17 , 32, 0X00);
       FillRect(0 , 191, 17 , 32, 0X00);
-      
+      if (x == 86){
+       f = f--;  
+      }
     }
   }
   else if (b == 2) {
@@ -107,11 +109,11 @@ void loop() {
       delay(15);
       int anim2 = (x / 3) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 159 , 17, 62, BOLA);
-      LCD_Bitmap(x, 52 , 17, 62, BOLA);
+      LCD_Bitmap(x, 161 , 17, 62, BOLA);
+      LCD_Bitmap(x, 54 , 17, 62, BOLA);
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 62, 0X00);
-      FillRect(0 , 159 , 17 , 62, 0X00);
+      FillRect(0 , 54 , 17 , 62, 0X00);
+      FillRect(0 , 161 , 17 , 62, 0X00);
     }
   }
   else if (b == 3) {
@@ -129,7 +131,7 @@ void loop() {
     }
   }
 
-
+         }
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
