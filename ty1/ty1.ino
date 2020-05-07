@@ -85,7 +85,9 @@ void setup() {
 
 
 void loop() {
+   
    int f = 3;
+   FillRect(0, 0, 319, 206, 0x00);
    while ( f > 0){
   int b = random (4);
 
@@ -136,7 +138,13 @@ void loop() {
 
          }
    while (f == 0){
-   }
+  int G = 1;
+  FillRect(0, 0, 319, 206, 0x00);
+  while (G == 1){
+  String text2 = "GAME OVER";
+  LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+  }
+  }
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
