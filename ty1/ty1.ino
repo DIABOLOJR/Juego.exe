@@ -115,6 +115,9 @@ void loop() {
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 54 , 17 , 62, 0X00);
       FillRect(0 , 161 , 17 , 62, 0X00);
+       if (x == 86){
+       f = f--;  
+      }
     }
   }
   else if (b == 3) {
@@ -127,7 +130,6 @@ void loop() {
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 207 , 17 , 32, 0X00);
       FillRect(0 , 100 , 17 , 32, 0X00);
-
       
     }
   }
