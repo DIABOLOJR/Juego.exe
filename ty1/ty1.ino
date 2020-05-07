@@ -87,7 +87,7 @@ void setup() {
 void loop() {
    
    int f = 3;
-   FillRect(0, 0, 319, 206, 0x00);
+   FillRect(0, 0, 319, 60, 0x00);
    while ( f > 0){
   int b = random (4);
 
