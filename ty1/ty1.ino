@@ -114,7 +114,6 @@ void loop() {
   }
        }
       }
-    }
   }
   else if (b == 2) {
     for (int x = 320 - 17; x > 0; x --) {
