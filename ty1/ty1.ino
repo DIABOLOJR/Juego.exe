@@ -104,6 +104,15 @@ void loop() {
       FillRect(0 , 191, 17 , 32, 0X00);
       if (x == 86){
        f = f--;  
+       if (f == 0){
+          int G = 1;
+          FillRect(0, 0, 319, 206, 0x00);
+          while (G == 1){
+         String text2 = "GAME OVER";
+         LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+  }
+  }
+       }
       }
     }
   }
@@ -118,7 +127,15 @@ void loop() {
       FillRect(0 , 54 , 17 , 62, 0X00);
       FillRect(0 , 161 , 17 , 62, 0X00);
        if (x == 86){
-       f = f--;  
+       f = f--;
+          if (f == 0){
+          int G = 1;
+          FillRect(0, 0, 319, 206, 0x00);
+          while (G == 1){
+         String text2 = "GAME OVER";
+         LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+  }
+  }
       }
     }
   }
@@ -137,14 +154,6 @@ void loop() {
   }
 
          }
-   while (f == 0){
-  int G = 1;
-  FillRect(0, 0, 319, 206, 0x00);
-  while (G == 1){
-  String text2 = "GAME OVER";
-  LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
-  }
-  }
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
