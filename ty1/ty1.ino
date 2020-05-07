@@ -92,7 +92,7 @@ void loop() {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
       
-      int anim2 = (x / 5) % 3;
+      int anim2 = (x / 3) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
       LCD_Bitmap(x, 191 , 17, 32, SALTAR);
       LCD_Bitmap(x, 84 , 17, 32, SALTAR);
@@ -105,19 +105,19 @@ void loop() {
   else if (b == 2) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
-      int anim2 = (x / 5) % 3;
+      int anim2 = (x / 3) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 62, BOLA);
-      LCD_Bitmap(x, 84 , 17, 62, BOLA);
+      LCD_Bitmap(x, 175 , 17, 62, BOLA);
+      LCD_Bitmap(x, 68 , 17, 62, BOLA);
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 84 , 17 , 62, 0X00);
-      FillRect(0 , 191 , 17 , 62, 0X00);
+      FillRect(0 , 68 , 17 , 62, 0X00);
+      FillRect(0 , 175 , 17 , 62, 0X00);
     }
   }
   else if (b == 3) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
-      int anim2 = (x / 5) % 3;
+      int anim2 = (x / 3) % 3;
       LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
       LCD_Bitmap(x, 207 , 17, 32, piso);
       LCD_Bitmap(x, 100 , 17, 32, piso);
