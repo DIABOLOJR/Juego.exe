@@ -72,6 +72,7 @@ void setup() {
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
     x += 15;
+    pinMode (PA_5,INPUT);
     pinMode (PA_4, INPUT);
     pinMode (PA_3, INPUT);
     pinMode (PA_2, INPUT);
