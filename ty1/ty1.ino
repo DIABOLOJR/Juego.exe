@@ -89,359 +89,344 @@ void setup() {
 
 
 void loop() {
-   
-   int f = 3;
-   int w = 1;
-   int g = 1;
-   FillRect(0, 0, 319, 60, 0x00);
-   while ( f > 0){
-  //int b = random (4);
-      int b = 1;
 
-
-  if (b == 1) {
-    for (int x = 320 - 17; x > 0; x --) {
-      delay(15);
-       if (digitalRead(PA_3) == LOW){
-          if(digitalRead(PA_4) == LOW){
-             w = w--;
-             g = g--;
+  int f = 3;
+  int w = 1;
+  int g = 1;
+  FillRect(0, 0, 319, 60, 0x00);
+  while ( f > 0) {
+    int b = random (4);
+    if (b == 1) {
+      for (int x = 320 - 17; x > 0; x --) {
+        delay(15);
+        if (digitalRead(PA_3) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 191, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
           }
           else {
-             g = g--;
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
           }
-       }
-       else if (digitalRead(PA_4) == LOW){
-          w = w--;
-       }
-       if (w == 0){
-             FillRect(0, 0, 319, 206, 0x00);
-             String text2 = "GAME OVER";
-             LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
-       }
-    if (digitalRead(PA_3) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 191, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-  }
-  else if (digitalRead(PA_2) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 159, 26, 30, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-  else {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00); 
-  }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect (64, 159, 32, 15, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 191 , 17, 32, SALTAR);
-      LCD_Bitmap(x, 84 , 17, 32, SALTAR);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-       }
+        }
+        else if (digitalRead(PA_2) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 159, 26, 30, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+        else {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect (64, 159, 32, 15, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 191 , 17, 32, SALTAR);
+            LCD_Bitmap(x, 84 , 17, 32, SALTAR);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
       }
-  else if (b == 2) {
-    for (int x = 320 - 17; x > 0; x --) {
-      delay(15);
-      if (digitalRead(PA_3) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
     }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 191, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
+    else if (b == 2) {
+      for (int x = 320 - 17; x > 0; x --) {
+        delay(15);
+        if (digitalRead(PA_3) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 191, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+        else if (digitalRead(PA_2) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 159, 26, 30, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+        else {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect (64, 159, 32, 15, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 161 , 17, 32, BOLA);
+            LCD_Bitmap(x, 54 , 17, 32, BOLA);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+      }
     }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
+    else if (b == 3) {
+      for (int x = 320 - 17; x > 0; x --) {
+        delay(15);
+        if (digitalRead(PA_3) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 191, 22, 16, 0X00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 191, 22, 16, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+        else if (digitalRead(PA_2) == HIGH) {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect(64, 159, 26, 30, 0X00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 159, 26, 30, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+        else {
+          if (digitalRead(PA_4) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 84, 22, 16, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else if (digitalRead(PA_5) == HIGH) {
+            int anim2 = (x / 3) % 3;
+            FillRect(64, 52, 26, 30, 0X00);
+            FillRect (64, 159, 32, 15, 0X00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+          else {
+            int anim2 = (x / 3) % 3;
+            FillRect (64, 159, 32, 15, 0X00);
+            FillRect(64, 52, 32, 15, 0x00);
+            LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
+            LCD_Bitmap(x, 207 , 17, 32, piso);
+            LCD_Bitmap(x, 100 , 17, 32, piso);
+            LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
+            FillRect(0 , 52 , 17 , 64, 0X00);
+            FillRect(0 , 159, 17 , 64, 0X00);
+          }
+        }
+      }
     }
   }
-  else if (digitalRead(PA_2) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 159, 26, 30, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-  else {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect (64, 159, 32, 15, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 161 , 17, 32, BOLA);
-      LCD_Bitmap(x, 54 , 17, 32, BOLA);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-    }
-  }
-  else if (b == 3) {
-    for (int x = 320 - 17; x > 0; x --) {
-      delay(15);
-      if (digitalRead(PA_3) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 191, 22, 16, 0X00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 191, 22, 16, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-  else if (digitalRead(PA_2) == HIGH) {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect(64, 159, 26, 30, 0X00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 159, 26, 30, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 191 , 16, 14, SAMUSBALL, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-  else {
-    if (digitalRead(PA_4) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 84, 22, 16, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Bitmap(64, 52 , 24, 32, SAMUSP2SALTO);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else if (digitalRead(PA_5) == HIGH) {
-      int anim2 = (x / 3) % 3;
-      FillRect(64, 52, 26, 30, 0X00);
-      FillRect (64, 159, 32, 15, 0X00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-    else {
-      int anim2 = (x / 3) % 3;
-      FillRect (64, 159, 32, 15, 0X00);
-      FillRect(64, 52, 32, 15, 0x00);
-      LCD_Sprite(64, 175 , 22, 32, SAMUSD, 3, anim2, 0, 0);
-      LCD_Bitmap(x, 207 , 17, 32, piso);
-      LCD_Bitmap(x, 100 , 17, 32, piso);
-      LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
-      FillRect(0 , 52 , 17 , 64, 0X00);
-      FillRect(0 , 159, 17 , 64, 0X00);
-    }
-  }
-         }
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
