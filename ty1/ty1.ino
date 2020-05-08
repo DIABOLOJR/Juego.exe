@@ -104,16 +104,16 @@ void setup() {
 
 
 void loop() {
-    /*myFile = SD.open("Fondo.ino");
+    myFile = SD.open("Fondo.ino");
        if (myFile) {
         Serial.println("Sonic:"); // read from the file until there's nothing else in it:
         while (myFile.available()) {
-          Serial.write(myFile.read());
+          myFile.read();
           }// close the file:
           myFile.close();
           } else { // if the file didn't open, print an error:
             Serial.println("error opening test.txt");
-            }*/
+            }
   int f = 3;
   int w = 1;
   int g = 1;
