@@ -91,8 +91,8 @@ void setup() {
 void loop() {
    
    int f = 3;
-   int w = 3;
-   int g = 3;
+   int w = 1;
+   int g = 1;
    FillRect(0, 0, 319, 60, 0x00);
    while ( f > 0){
   //int b = random (4);
@@ -102,7 +102,26 @@ void loop() {
   if (b == 1) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
-if (digitalRead(PA_3) == HIGH) {
+       if (digitalRead(PA_3) == LOW){
+          if(digitalRead(PA_4) == LOW){
+             w = w--;
+             g = g--;
+          }
+          else {
+             g = g--;
+          }
+       }
+       else if (digitalRead(PA_4) == LOW){
+          w = w--;
+       }
+       if (w == 0){
+          while (w == 0){
+             FillRect(0, 0, 319, 206, 0x00);
+             String text2 = "GAME OVER";
+             LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+          }
+       }
+    if (digitalRead(PA_3) == HIGH) {
     if (digitalRead(PA_4) == HIGH) {
       int anim2 = (x / 3) % 3;
       FillRect(64, 191, 22, 16, 0X00);
@@ -124,16 +143,6 @@ if (digitalRead(PA_3) == HIGH) {
       LCD_Sprite(64, 84 , 16, 14, SAMUSP2BALL, 3, anim2, 0, 0);
       FillRect(0 , 52 , 17 , 64, 0X00);
       FillRect(0 , 159, 17 , 64, 0X00);
-      if (x == 86){
-       w = w--;
-          if (w == 0){
-             while (f > 0){
-                  FillRect(0, 0, 319, 206, 0x00);
-                  String text1 = "GAME OVER";
-                  LCD_Print(text1, 20, 50, 2, 0xffff, 0x00);
-             }
-          }
-      }
     }
     else {
       int anim2 = (x / 3) % 3;
@@ -145,16 +154,6 @@ if (digitalRead(PA_3) == HIGH) {
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 52 , 17 , 64, 0X00);
       FillRect(0 , 159, 17 , 64, 0X00);
-      if (x == 86){
-       w = w--;
-          if (w == 0){
-             while (f > 0){
-                  FillRect(0, 0, 319, 206, 0x00);
-                  String text1 = "GAME OVER";
-                  LCD_Print(text1, 20, 50, 2, 0xffff, 0x00);
-             }
-          }
-      }
   }
   else if (digitalRead(PA_2) == HIGH) {
     if (digitalRead(PA_4) == HIGH) {
