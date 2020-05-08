@@ -93,7 +93,8 @@ void loop() {
    int f = 3;
    FillRect(0, 0, 319, 60, 0x00);
    while ( f > 0){
-  int b = random (4);
+  //int b = random (4);
+      int b = 1;
 
   if (b == 1) {
     for (int x = 320 - 17; x > 0; x --) {
