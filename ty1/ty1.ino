@@ -19,6 +19,11 @@
 #include "driverlib/rom.h"
 #include "driverlib/sysctl.h"
 #include "driverlib/timer.h"
+#include <SPI.h>
+#include <SD.h>
+
+File root;
+File myFile;
 
 #include "bitmaps.h"
 #include "font.h"
@@ -63,6 +68,14 @@ void setup() {
   LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
   delay(700);
   FillRect(0,0, 319, 70, 0X00);
+  SPI.setModule(0);
+  pinMode(10, OUTPUT);
+   if (!SD.begin(32)) {
+    Serial.println("initialization failed!");
+    return;
+  }
+   root = SD.open("/");
+   
   //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
   //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
@@ -91,7 +104,16 @@ void setup() {
 
 
 void loop() {
-
+    myFile = SD.open("Fondo.ino");
+       if (myFile) {
+        Serial.println("Sonic:"); // read from the file until there's nothing else in it:
+        while (myFile.available()) {
+          Serial.write(myFile.read());
+          }// close the file:
+          myFile.close();
+          } else { // if the file didn't open, print an error:
+            Serial.println("error opening test.txt");
+            }
   int f = 3;
   int w = 1;
   int g = 1;
