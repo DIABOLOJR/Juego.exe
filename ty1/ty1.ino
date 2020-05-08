@@ -91,9 +91,12 @@ void setup() {
 void loop() {
    
    int f = 3;
+   int w = 3;
+   int g = 3;
    FillRect(0, 0, 319, 60, 0x00);
    while ( f > 0){
-  int b = random (4);
+  //int b = random (4);
+      int b = 1;
 
 
   if (b == 1) {
@@ -202,6 +205,50 @@ if (digitalRead(PA_3) == HIGH) {
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
       FillRect(0 , 52 , 17 , 64, 0X00);
       FillRect(0 , 159, 17 , 64, 0X00);
+    }
+  }
+       if (x == 86) {
+    if (digitalRead(PA_3) == LOW) {
+      if (digitalRead(PA_4) == HIGH) {
+        g = g--;
+        if (g == 0) {
+          while (g == 0) {
+            String text2 = "GAME OVER";
+            LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+          }
+        }
+        else {
+          g = g--;
+          w = w--;
+          if (g == 0) {
+            while (g == 0) {
+              String text2 = "GAME OVER";
+              LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+            }
+          }
+          else if (w == 0) {
+            while (w == 0) {
+              String text2 = "GAME OVER";
+              LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+            }
+          }
+        }
+      }
+    }
+    else if (digitalRead(PA_3) == HIGH) {
+      if (digitalRead(PA_4) == LOW) {
+        w = w--;
+        if (w == 0) {
+          while (w == 0) {
+            String text2 = "GAME OVER";
+            LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
+          }
+        }
+      }
+      else {
+        g = g;
+        w = w;
+      }
     }
   }
        }
