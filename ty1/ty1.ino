@@ -135,6 +135,7 @@ if (digitalRead(PA_3) == HIGH) {
       if (digitalRead(PA_3) == HIGH) {
     int anim2 = (x / 3) % 3;
     FillRect(64, 191, 22, 16, 0X00);
+          LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
       LCD_Bitmap(x, 161 , 17, 62, BOLA);
       LCD_Bitmap(x, 54 , 17, 62, BOLA);
     LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
@@ -169,6 +170,7 @@ if (digitalRead(PA_3) == HIGH) {
       if (digitalRead(PA_3) == HIGH) {
     int anim2 = (x / 3) % 3;
     FillRect(64, 191, 22, 16, 0X00);
+             LCD_Bitmap(64, 159 , 24, 32, SAMUSSALTO);
       LCD_Bitmap(x, 207 , 17, 32, piso);
       LCD_Bitmap(x, 100 , 17, 32, piso);
     LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
