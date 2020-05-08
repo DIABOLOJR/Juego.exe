@@ -74,10 +74,10 @@ void setup() {
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
     x += 15;
-    pinMode (PA_5,INPUT);
-    pinMode (PA_4, INPUT);
-    pinMode (PA_3, INPUT);
-    pinMode (PA_2, INPUT);
+    pinMode (PC_4,INPUT);
+    pinMode (PC_5, INPUT);
+    pinMode (PC_6, INPUT);
+    pinMode (PC_7, INPUT);
   }
   //BALAN
   //SAI Arma izquierda
@@ -101,8 +101,8 @@ void loop() {
     if (b == 1) {
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
-        if (digitalRead(PA_3) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        if (digitalRead(PC_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 191, 22, 16, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -113,7 +113,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 191, 22, 16, 0X00);
@@ -136,8 +136,8 @@ void loop() {
             FillRect(0 , 159, 17 , 64, 0X00);
           }
         }
-        else if (digitalRead(PA_2) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        else if (digitalRead(PC_5) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 159, 26, 30, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -148,7 +148,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 159, 26, 30, 0X00);
@@ -172,7 +172,7 @@ void loop() {
           }
         }
         else {
-          if (digitalRead(PA_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect (64, 159, 32, 15, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -183,7 +183,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect (64, 159, 32, 15, 0X00);
@@ -211,8 +211,8 @@ void loop() {
     else if (b == 2) {
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
-        if (digitalRead(PA_3) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        if (digitalRead(PC_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 191, 22, 16, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -223,7 +223,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 191, 22, 16, 0X00);
@@ -246,8 +246,8 @@ void loop() {
             FillRect(0 , 159, 17 , 64, 0X00);
           }
         }
-        else if (digitalRead(PA_2) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        else if (digitalRead(PC_5) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 159, 26, 30, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -258,7 +258,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 159, 26, 30, 0X00);
@@ -282,7 +282,7 @@ void loop() {
           }
         }
         else {
-          if (digitalRead(PA_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect (64, 159, 32, 15, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -293,7 +293,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect (64, 159, 32, 15, 0X00);
@@ -321,8 +321,8 @@ void loop() {
     else if (b == 3) {
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
-        if (digitalRead(PA_3) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        if (digitalRead(PC_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 191, 22, 16, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -333,7 +333,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 191, 22, 16, 0X00);
@@ -356,8 +356,8 @@ void loop() {
             FillRect(0 , 159, 17 , 64, 0X00);
           }
         }
-        else if (digitalRead(PA_2) == HIGH) {
-          if (digitalRead(PA_4) == HIGH) {
+        else if (digitalRead(PC_5) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 159, 26, 30, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -368,7 +368,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect(64, 159, 26, 30, 0X00);
@@ -392,7 +392,7 @@ void loop() {
           }
         }
         else {
-          if (digitalRead(PA_4) == HIGH) {
+          if (digitalRead(PC_6) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect (64, 159, 32, 15, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -403,7 +403,7 @@ void loop() {
             FillRect(0 , 52 , 17 , 64, 0X00);
             FillRect(0 , 159, 17 , 64, 0X00);
           }
-          else if (digitalRead(PA_5) == HIGH) {
+          else if (digitalRead(PC_7) == HIGH) {
             int anim2 = (x / 3) % 3;
             FillRect(64, 52, 26, 30, 0X00);
             FillRect (64, 159, 32, 15, 0X00);
