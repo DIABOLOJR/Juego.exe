@@ -92,14 +92,14 @@ void loop() {
    int f = 3;
    FillRect(0, 0, 319, 60, 0x00);
    while ( f > 0){
-  int b = random (4);
+  int b = 1;
 
   if (b == 1) {
     for (int x = 320 - 17; x > 0; x --) {
       delay(15);
 if (digitalRead(PA_3) == HIGH){
      int anim2 = (x / 3) % 3;
-      LCD_Sprite(64, 175 , 22, 32, SAMUSSALTO, 3, anim2, 0, 0);
+      LCD_Sprite(64, 159 , 22, 32, SAMUSSALTO, 3, anim2, 0, 0);
       LCD_Bitmap(x, 191 , 17, 32, SALTAR);
       LCD_Bitmap(x, 84 , 17, 32, SALTAR);
       LCD_Sprite(64, 68 , 22, 32, SAMUSP2, 3, anim2, 0, 0);
