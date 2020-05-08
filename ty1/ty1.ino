@@ -115,11 +115,9 @@ void loop() {
           w = w--;
        }
        if (w == 0){
-          while (w == 0){
              FillRect(0, 0, 319, 206, 0x00);
              String text2 = "GAME OVER";
              LCD_Print(text2, 20, 50, 2, 0xffff, 0x00);
-          }
        }
     if (digitalRead(PA_3) == HIGH) {
     if (digitalRead(PA_4) == HIGH) {
