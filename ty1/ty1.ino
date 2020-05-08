@@ -60,7 +60,9 @@ void setup() {
 
   FillRect(0, 0, 319, 206, 0x00);
   String text1 = "Super Metroid";
-  LCD_Print(text1, 20, 50, 2, 0xffff, 0x00);
+  LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
+  delay(20);
+  FillRect(0,0, 319, 70, 0X00);
   //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
   //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
@@ -68,7 +70,7 @@ void setup() {
   for (int x = 0; x < 319; x++) {
 
     LCD_Bitmap(x, 100, 16, 16, piso);
-
+    LCD_Bitmap(x, 116, 16, 16, piso);
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
     x += 15;
