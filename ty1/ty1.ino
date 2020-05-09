@@ -99,7 +99,8 @@ void setup() {
   LCD_Init();
   LCD_Clear(0x00);
 
-  LCD_Bitmap(0,0, 320,240, PANTALLAIN);
+   String text1 = "Metroid Rush";
+  LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
   delay(700);
   FillRect(0, 0, 319, 70, 0X00);
   SPI.setModule(0);
