@@ -36,6 +36,9 @@ File myFile;
 #define LCD_RD PE_1
 int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 
+
+
+
 #define note_cc 261
 #define note_dd 294
 #define note_ee 329
@@ -65,7 +68,6 @@ void beep(int note, int duration)
   noTone(buzzerPin);
   delay(duration / 2 + 20);
 }
-
 
 
 //***************************************************************************************************************************************
@@ -101,7 +103,6 @@ void setup() {
   String text1 = "Super Metroid";
   LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
   delay(700);
-<<<<<<< HEAD
   FillRect(0, 0, 319, 70, 0X00);
   SPI.setModule(0);
   pinMode(10, OUTPUT);
@@ -111,17 +112,6 @@ void setup() {
   }
   root = SD.open("/");
 
-=======
-  FillRect(0,0, 319, 70, 0X00);
-  SPI.setModule(0);
-  pinMode(10, OUTPUT);
-   if (!SD.begin(32)) {
-    Serial.println("initialization failed!");
-    return;
-  }
-   root = SD.open("/");
-   
->>>>>>> 83bf4c92d00b9a768a93fba4750e2b58197178b7
   //LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
   //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
@@ -133,11 +123,7 @@ void setup() {
     LCD_Bitmap(x, 207, 16, 16, piso);
     LCD_Bitmap(x, 223, 16, 16, piso);
     x += 15;
-<<<<<<< HEAD
     pinMode (PC_4, INPUT);
-=======
-    pinMode (PC_4,INPUT);
->>>>>>> 83bf4c92d00b9a768a93fba4750e2b58197178b7
     pinMode (PC_5, INPUT);
     pinMode (PC_6, INPUT);
     pinMode (PC_7, INPUT);
@@ -147,15 +133,6 @@ void setup() {
   //SAMUSidle parado antes de disparar
   //SAD arma derecha
   //SAMUSAidle parada despues de disparar
-  myFile = SD.open("Fondo.ino");
-  if (myFile) {
-    while (myFile.available()) {
-      myFile.read();
-    }// close the file:
-    myFile.close();
-  } else { // if the file didn't open, print an error:
-    Serial.println("error opening test.txt");
-  }
 }
 
 
@@ -218,26 +195,25 @@ void song() {
   beep(note_dH, 600);
   delay(75);
 }
+
+
 //***************************************************************************************************************************************
 // Loop Infinito
 //***************************************************************************************************************************************
 
-void loop() {
-<<<<<<< HEAD
-song();
 
-=======
-    myFile = SD.open("Fondo.ino");
-       if (myFile) {
-        Serial.println("Sonic:"); // read from the file until there's nothing else in it:
-        while (myFile.available()) {
-          myFile.read();
-          }// close the file:
-          myFile.close();
-          } else { // if the file didn't open, print an error:
-            Serial.println("error opening test.txt");
-            }
->>>>>>> 83bf4c92d00b9a768a93fba4750e2b58197178b7
+void loop() {
+  
+  myFile = SD.open("Fondo.ino");
+  if (myFile) {
+    
+    while (myFile.available()) {
+      Serial.write(myFile.read());
+    }// close the file:
+    myFile.close();
+  } else { // if the file didn't open, print an error:
+    Serial.println("error opening test.txt");
+  }
   int f = 3;
   int w = 1;
   int g = 1;
