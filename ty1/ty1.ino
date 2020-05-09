@@ -99,9 +99,7 @@ void setup() {
   LCD_Init();
   LCD_Clear(0x00);
 
-  FillRect(0, 0, 319, 206, 0x00);
-  String text1 = "Super Metroid";
-  LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
+  LCD_Bitmap(0,0, 320,240, PANTALLAIN);
   delay(700);
   FillRect(0, 0, 319, 70, 0X00);
   SPI.setModule(0);
