@@ -59,9 +59,9 @@ int DPINS[] = {PB_0, PB_1, PB_2, PB_3, PB_4, PB_5, PB_6, PB_7};
 #define note_gSH 830
 #define note_aH 880
 
-int buzzerPin = 40;
+int buzzerPin = 40; // pin utilizado para el buzzer para sonido 
 
-void beep(int note, int duration)
+void beep(int note, int duration) // funcion utilizada para generar un sonido en el buzzer 
 {
   tone(buzzerPin, note, duration / 2);
   delay(duration / 2);
@@ -91,7 +91,7 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[], int
 // Inicialización
 //***************************************************************************************************************************************
 void setup() {
-  pinMode(buzzerPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);//set del pin del buzzer como salida 
   SysCtlClockSet(SYSCTL_SYSDIV_2_5 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
@@ -99,7 +99,7 @@ void setup() {
   LCD_Init();
   LCD_Clear(0x00);
 
-   String text1 = "Metroid Rush";
+   String text1 = "Metroid Rush"; //mensaje de inicio del programa con el nombre del juego 
   LCD_Print(text1, 10, 50, 2, 0xffff, 0x00);
   delay(700);
   FillRect(0, 0, 319, 70, 0X00);
@@ -115,7 +115,7 @@ void setup() {
 
   //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 
-  for (int x = 0; x < 319; x++) {
+  for (int x = 0; x < 319; x++) {// seteo de los pines de input de los botones para los jugadores y despliege del background 
 
     LCD_Bitmap(x, 100, 16, 16, piso);
     LCD_Bitmap(x, 116, 16, 16, piso);
@@ -135,7 +135,7 @@ void setup() {
 }
 
 
-void song() {
+void song() { // cancion del juego 
   beep(note_ee, 600);
   beep(note_b, 600);
   beep(note_gH, 600);
@@ -217,13 +217,13 @@ void loop() {
   int w = 1;
   int g = 1;
   FillRect(0, 0, 319, 60, 0x00);
-  while ( f > 0) {
+  while ( f > 0) { // loop infinito
     int b = random (4);
-    if (b == 1) {
+    if (b == 1) {//opcion 1 de obstaculo salto 
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
-        if (digitalRead(PC_4) == HIGH) {
-          if (digitalRead(PC_6) == HIGH) {
+        if (digitalRead(PC_4) == HIGH) {// seleccion del sprite que se desplegara para P1 (esto se utiliza en cada uno de los obstaculos)
+          if (digitalRead(PC_6) == HIGH) {//seleccion del sprite del P2
             int anim2 = (x / 3) % 3;
             FillRect(64, 191, 22, 16, 0X00);
             FillRect(64, 84, 22, 16, 0X00);
@@ -329,7 +329,7 @@ void loop() {
         }
       }
     }
-    else if (b == 2) {
+    else if (b == 2) {//Obstaculo número 2 volverse en pelota 
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
         if (digitalRead(PC_4) == HIGH) {
@@ -439,7 +439,7 @@ void loop() {
         }
       }
     }
-    else if (b == 3) {
+    else if (b == 3) {// Sin obstaculo
       for (int x = 320 - 17; x > 0; x --) {
         delay(15);
         if (digitalRead(PC_4) == HIGH) {
